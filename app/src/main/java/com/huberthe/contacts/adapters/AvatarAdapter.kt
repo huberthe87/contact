@@ -41,7 +41,7 @@ class AvatarAdapter(private val densityDpi: Int, private val assetManager: Asset
       // Adjust fileName by density
       if(densityDpi >= DENSITY_XHIGH) {
         fileName = fileName.replace(".", "@3x.")
-      } else if(densityDpi >= DENSITY_LOW) {
+      } else if(densityDpi >= DENSITY_HIGH) {
         fileName = fileName.replace(".", "@2x.")
       }
       Log.d("AVATAR", "densityDpi $densityDpi $fileName")
