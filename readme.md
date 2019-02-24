@@ -14,4 +14,6 @@ The UT cases are extremely limited, due the lack of time to consider all the det
 
 ## Demo
 
+**Wait a moment till the GIF loaded**
+
 <img src="https://github.com/huberthe87/contact/blob/master/images/demo.gif" width="25%" height="25%" />
