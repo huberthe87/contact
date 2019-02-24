@@ -77,6 +77,7 @@ class AvatarAdapter(private val densityDpi: Int, private val assetManager: Asset
     private val avatarIv: ImageView = itemView.findViewById(R.id.rv_avatar_item_iv)
 
     fun bind(position: Int, currentPosition: Int, drawable: Drawable) {
+      // Could be optimized by using Picasso or Glice
       if(avatarIv.drawable != drawable) {
         avatarIv.setImageDrawable(drawable)
       }
