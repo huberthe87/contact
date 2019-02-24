@@ -8,6 +8,7 @@
   <ImageView
     xmlns:tools="http://schemas.android.com/tools"
     tools:src="@tools:sample/avatars"
+    android:background="@drawable/bg_rv_avatar_item_default"
     android:id="@+id/rv_avatar_item_iv"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
