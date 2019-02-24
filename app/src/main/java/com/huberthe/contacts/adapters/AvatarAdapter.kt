@@ -59,8 +59,6 @@ class AvatarAdapter(private val densityDpi: Int, private val assetManager: Asset
     }
 
     holder.bind(position, currentPosition, drawable?: ColorDrawable(Color.BLACK) )
-
-
   }
 
   class AvatarItemViewHolder(parent: ViewGroup, channel: SendChannel<Int>) : RecyclerView.ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.rv_avatar_item, parent, false)) {

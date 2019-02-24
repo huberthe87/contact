@@ -1,6 +1,5 @@
 package com.huberthe.contacts
 
-import android.util.Log
 import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.NonNull
@@ -24,7 +23,6 @@ import org.hamcrest.TypeSafeMatcher
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
-import java.lang.StringBuilder
 
 @RunWith(AndroidJUnit4::class)
 @LargeTest
