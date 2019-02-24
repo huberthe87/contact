@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <dimen name="rv_avatar_item_iv_size">68dp</dimen>
-  <dimen name="rv_avatar_item_iv_padding">2dp</dimen>
+  <dimen name="rv_avatar_item_iv_bg_padding">3dp</dimen>
   <dimen name="rv_profile_item_full_name_size">20sp</dimen>
-  <dimen name="rv_profile_item_profession_size">16sp</dimen>
+  <dimen name="rv_profile_item_title_size">16sp</dimen>
   <dimen name="app_margin_small">8dp</dimen>
   <dimen name="app_margin_normal">12dp</dimen>
   <dimen name="app_margin_large">16dp</dimen>
   <dimen name="app_margin_extra_large">20dp</dimen>
+
+  <dimen name="app_font_small">16sp</dimen>
 
   <dimen name="app_horizontal_padding">12dp</dimen>
   <dimen name="app_vertical_padding">16dp</dimen>

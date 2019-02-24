@@ -1,6 +1,12 @@
 package com.huberthe.contacts.adapters
 
+import android.content.res.AssetManager
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.Drawable
+import android.util.DisplayMetrics.DENSITY_HIGH
+import android.util.DisplayMetrics.DENSITY_XHIGH
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.ImageView
@@ -12,8 +18,10 @@ import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.channels.ReceiveChannel
 import kotlinx.coroutines.channels.SendChannel
 import kotlinx.coroutines.launch
+import java.io.IOException
+import java.io.InputStream
 
-class AvatarAdapter : RecyclerView.Adapter<AvatarAdapter.AvatarItemViewHolder>() {
+class AvatarAdapter(private val densityDpi: Int, private val assetManager: AssetManager) : RecyclerView.Adapter<AvatarAdapter.AvatarItemViewHolder>() {
 
   val contacts: MutableList<Contact> = ArrayList()
 
@@ -26,7 +34,33 @@ class AvatarAdapter : RecyclerView.Adapter<AvatarAdapter.AvatarItemViewHolder>()
   override fun getItemCount() = contacts.size
 
   override fun onBindViewHolder(holder: AvatarItemViewHolder, position: Int) {
-    holder.bind(position, currentPosition, null)
+    val fileName = contacts[position].avatar
+    // Create an input stream to read from the asset folder
+    var inputStream: InputStream? = null
+    var drawable: Drawable? = null
+    try {
+      // Adjust fileName by density
+      if(densityDpi >= DENSITY_XHIGH) {
+        fileName.replace(".", "@3x.")
+      } else if(densityDpi >= DENSITY_HIGH) {
+        fileName.replace(".", "@2x.")
+      }
+      Log.d("AVATAR", "densityDpi $densityDpi $fileName")
+      inputStream = assetManager.open("avatars/$fileName")
+      drawable = Drawable.createFromStream(inputStream, null)
+    } catch(e: Exception) {
+      Log.e("AVATAR", "Unexpected error occurred.", e)
+    } finally {
+      //Always clear and close
+      try {
+        inputStream?.close()
+      } catch(e: IOException) {
+      }
+    }
+
+    holder.bind(position, currentPosition, drawable?: ColorDrawable(Color.BLACK) )
+
+
   }
 
   class AvatarItemViewHolder(parent: ViewGroup, channel: SendChannel<Int>) : RecyclerView.ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.rv_avatar_item, parent, false)) {
@@ -45,10 +79,11 @@ class AvatarAdapter : RecyclerView.Adapter<AvatarAdapter.AvatarItemViewHolder>()
 
     private val avatarIv: ImageView = itemView.findViewById(R.id.rv_avatar_item_iv)
 
-    fun bind(position: Int, currentPosition: Int, drawable: Drawable?) {
-//      avatarIv.setImageDrawable(drawable)
-      index = position
+    fun bind(position: Int, currentPosition: Int, drawable: Drawable) {
+      avatarIv.setImageDrawable(drawable)
+      avatarIv.contentDescription
       itemView.isSelected = currentPosition == position
+      index = position
     }
   }
 

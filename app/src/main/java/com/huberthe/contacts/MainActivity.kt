@@ -1,6 +1,7 @@
 package com.huberthe.contacts
 
 import android.os.Bundle
+import android.util.DisplayMetrics
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
@@ -40,12 +41,15 @@ class MainActivity : AppCompatActivity() {
 
       val scrollHelper = SyncSnapHelper(this)
       scrollHelper.attachToRecyclerViews(avatarRv, profileRv)
-
-      avatarAdapter = AvatarAdapter()
+      val metric = DisplayMetrics()
+      windowManager.defaultDisplay.getMetrics(metric)
+      avatarAdapter = AvatarAdapter(metric.densityDpi, applicationContext.assets)
       profileAdapter = ProfileAdapter()
 
       avatarRv.adapter = avatarAdapter
       profileRv.adapter = profileAdapter
+
+      // Add position changed listener via Kotlin Coroutine
       GlobalScope.launch(Dispatchers.Main) {
         launch {
           scrollHelper.scrollChangeChannel().consumeEach { position ->

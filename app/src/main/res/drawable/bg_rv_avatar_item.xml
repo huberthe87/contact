@@ -6,21 +6,18 @@
            android:useLevel="false">
       <stroke
         android:width="5dp"
-        android:color="#BFEFFF"/>
+        android:color="#D3E3E9"/>
       <padding
-        android:bottom="5dp"
-        android:left="5dp"
-        android:right="5dp"
-        android:top="5dp"/>
+        android:bottom="@dimen/rv_avatar_item_iv_bg_padding"
+        android:left="@dimen/rv_avatar_item_iv_bg_padding"
+        android:right="@dimen/rv_avatar_item_iv_bg_padding"
+        android:top="@dimen/rv_avatar_item_iv_bg_padding"/>
     </shape>
   </item>
   <item android:state_selected="false">
     <shape xmlns:android="http://schemas.android.com/apk/res/android"
            android:shape="oval"
            android:useLevel="false">
-      <stroke
-        android:width="5dp"
-        android:color="#BEBEBE"/>
       <padding
         android:bottom="5dp"
         android:left="5dp"

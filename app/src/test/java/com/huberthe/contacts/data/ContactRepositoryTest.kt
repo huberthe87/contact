@@ -1,6 +1,6 @@
 package com.huberthe.contacts.data
 
-import com.nhaarman.mockito_kotlin.whenever
+import com.nhaarman.mockitokotlin2.whenever
 import org.junit.Assert
 import org.junit.Test
 import org.junit.runner.RunWith

@@ -18,6 +18,12 @@ class ViewModelFactory(private val repository: ContactRepository) : ViewModelPro
       INSTANCE = ViewModelFactory(ContactRepository(ContactDataSource.ContactDataSourceImpl(context.assets)))
       return INSTANCE as ViewModelFactory
     }
+
+    // For test only
+    @JvmStatic
+    internal fun setInstance(viewModelFactory: ViewModelFactory) {
+      INSTANCE = viewModelFactory
+    }
   }
 
   override fun <T : ViewModel?> create(modelClass: Class<T>): T {

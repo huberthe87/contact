@@ -13,6 +13,7 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:textSize="@dimen/rv_profile_item_full_name_size"
+    android:fontFamily="sans-serif"
     tools:text="@tools:sample/full_names"/>
 
   <TextView
@@ -23,18 +24,20 @@
     android:layout_marginTop="@dimen/app_margin_small"
     android:layout_below="@id/rv_profile_item_full_name_tv"
     android:textColor="@color/midGrey"
-    android:textSize="@dimen/rv_profile_item_full_name_size"
+    android:textSize="@dimen/rv_profile_item_title_size"
+    android:fontFamily="sans-serif"
     tools:text="Writer"/>
 
   <TextView
     android:id="@+id/rv_profile_item_about_me_tv"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:textColor="@android:color/black"
     android:layout_marginTop="@dimen/app_margin_extra_large"
     android:layout_below="@id/rv_profile_item_title_tv"
     android:text="@string/rv_profile_item_about_me"
-    android:textSize="@dimen/rv_profile_item_full_name_size"
+    android:textColor="@android:color/black"
+    android:textSize="@dimen/app_font_small"
+    android:fontFamily="sans-serif"
     android:textStyle="bold"/>
 
   <TextView
@@ -42,9 +45,9 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_marginTop="@dimen/app_margin_small"
+    android:fontFamily="sans-serif"
     android:layout_below="@id/rv_profile_item_about_me_tv"
     android:textColor="@color/midGrey"
-    android:textSize="@dimen/rv_profile_item_full_name_size"
-    android:textStyle="bold"
+    android:textSize="@dimen/app_font_small"
     tools:text="Ut malesuada sollicitudin tincidunt. Maecenas volutpat suscipit efficitur. Curabitur ut tortor sit amet lacus pellentesque convallis in laoreet lectus. Curabitur lorem velit, bibendum et vulputate vulputate, commodo in tortor. Curabitur a dapibus mauris. Vestibulum hendrerit euismod felis at hendrerit. Pellentesque imperdiet volutpat molestie. Nam vehicula dui eu consequat finibus. Phasellus sed placerat lorem. Nulla pretium a magna sit amet iaculis. Aenean eget eleifend elit. Ut eleifend aliquet interdum. Cras pulvinar elit a dapibus iaculis. Nullam fermentum porttitor ultrices."/>
 </RelativeLayout>

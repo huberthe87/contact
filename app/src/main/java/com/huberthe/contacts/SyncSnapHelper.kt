@@ -297,10 +297,6 @@ class SyncSnapHelper(activity: Activity) {
       } else 1f * distance / (maxPos - minPos + 1)
     }
 
-    companion object {
-      private const val INVALID_DISTANCE = 1f
-    }
-
     private fun estimateNextPositionDiffForFling(layoutManager: RecyclerView.LayoutManager,
                                                  helper: OrientationHelper, velocityX: Int, velocityY: Int): Int {
       val distances = calculateScrollDistance(velocityX, velocityY)
@@ -314,8 +310,8 @@ class SyncSnapHelper(activity: Activity) {
 
   }
 
-
   companion object {
+    private const val INVALID_DISTANCE = 1f
 
     private val channel: Channel<Int> = Channel()
   }
