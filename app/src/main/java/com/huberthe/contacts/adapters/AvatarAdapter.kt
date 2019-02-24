@@ -4,8 +4,7 @@ import android.content.res.AssetManager
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.Drawable
-import android.util.DisplayMetrics.DENSITY_HIGH
-import android.util.DisplayMetrics.DENSITY_XHIGH
+import android.util.DisplayMetrics.*
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -34,16 +33,16 @@ class AvatarAdapter(private val densityDpi: Int, private val assetManager: Asset
   override fun getItemCount() = contacts.size
 
   override fun onBindViewHolder(holder: AvatarItemViewHolder, position: Int) {
-    val fileName = contacts[position].avatar
+    var fileName = contacts[position].avatar
     // Create an input stream to read from the asset folder
     var inputStream: InputStream? = null
     var drawable: Drawable? = null
     try {
       // Adjust fileName by density
       if(densityDpi >= DENSITY_XHIGH) {
-        fileName.replace(".", "@3x.")
-      } else if(densityDpi >= DENSITY_HIGH) {
-        fileName.replace(".", "@2x.")
+        fileName = fileName.replace(".", "@3x.")
+      } else if(densityDpi >= DENSITY_LOW) {
+        fileName = fileName.replace(".", "@2x.")
       }
       Log.d("AVATAR", "densityDpi $densityDpi $fileName")
       inputStream = assetManager.open("avatars/$fileName")
@@ -58,7 +57,7 @@ class AvatarAdapter(private val densityDpi: Int, private val assetManager: Asset
       }
     }
 
-    holder.bind(position, currentPosition, drawable?: ColorDrawable(Color.BLACK) )
+    holder.bind(position, currentPosition, drawable ?: ColorDrawable(Color.BLACK))
   }
 
   class AvatarItemViewHolder(parent: ViewGroup, channel: SendChannel<Int>) : RecyclerView.ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.rv_avatar_item, parent, false)) {
@@ -67,7 +66,7 @@ class AvatarAdapter(private val densityDpi: Int, private val assetManager: Asset
 
     init {
       itemView.setOnClickListener {
-        if(!itemView.isSelected) {
+        if(!avatarIv.isSelected) {
           GlobalScope.launch {
             channel.send(index)
           }
@@ -80,7 +79,7 @@ class AvatarAdapter(private val densityDpi: Int, private val assetManager: Asset
     fun bind(position: Int, currentPosition: Int, drawable: Drawable) {
       avatarIv.setImageDrawable(drawable)
       avatarIv.contentDescription
-      itemView.isSelected = currentPosition == position
+      avatarIv.isSelected = currentPosition == position
       index = position
     }
   }

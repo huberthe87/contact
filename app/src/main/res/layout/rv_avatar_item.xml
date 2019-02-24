@@ -2,13 +2,11 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="@dimen/rv_avatar_item_iv_size"
                 android:layout_height="@dimen/rv_avatar_item_iv_size"
-                android:layout_margin="@dimen/app_margin_normal"
-                android:background="@drawable/bg_rv_avatar_item">
-
+                android:layout_margin="@dimen/app_margin_normal">
   <ImageView
     xmlns:tools="http://schemas.android.com/tools"
     tools:src="@tools:sample/avatars"
-    android:background="@drawable/bg_rv_avatar_item_default"
+    android:background="@drawable/bg_rv_avatar_item"
     android:id="@+id/rv_avatar_item_iv"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
