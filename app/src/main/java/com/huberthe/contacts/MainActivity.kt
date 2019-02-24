@@ -53,12 +53,14 @@ class MainActivity : AppCompatActivity() {
       GlobalScope.launch(Dispatchers.Main) {
         launch {
           scrollHelper.scrollChangeChannel().consumeEach { position ->
+            Log.d("HIGHLIGHT", "SCROLL CHANGE")
             notifySelectChanged(avatarAdapter.currentPosition, position)
           }
         }
         launch {
           avatarAdapter.selectedChangeChannel().consumeEach { position ->
             notifySelectChanged(avatarAdapter.currentPosition, position)
+            Log.d("HIGHLIGHT", "SCROLL CHANGE")
 
             // Scroll to target position
             avatarRv.smoothScrollToPosition(position)
@@ -88,8 +90,8 @@ class MainActivity : AppCompatActivity() {
     }
     Log.d("POSITION", "oldPosition: $oldPosition newPosition: $newPosition")
     avatarAdapter.currentPosition = newPosition
-    avatarRv.adapter?.notifyItemChanged(oldPosition)
-    avatarRv.adapter?.notifyItemChanged(newPosition)
+    avatarAdapter.notifyItemChanged(oldPosition)
+    avatarAdapter.notifyItemChanged(newPosition)
   }
 
 }

@@ -77,8 +77,9 @@ class AvatarAdapter(private val densityDpi: Int, private val assetManager: Asset
     private val avatarIv: ImageView = itemView.findViewById(R.id.rv_avatar_item_iv)
 
     fun bind(position: Int, currentPosition: Int, drawable: Drawable) {
-      avatarIv.setImageDrawable(drawable)
-      avatarIv.contentDescription
+      if(avatarIv.drawable != drawable) {
+        avatarIv.setImageDrawable(drawable)
+      }
       avatarIv.isSelected = currentPosition == position
       index = position
     }
