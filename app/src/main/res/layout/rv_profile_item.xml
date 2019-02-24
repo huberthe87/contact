@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/white"
+                android:paddingEnd="@dimen/app_horizontal_padding"
+                android:paddingStart="@dimen/app_horizontal_padding">
+
+  <TextView
+    android:id="@+id/rv_profile_item_full_name_tv"
+    android:layout_centerHorizontal="true"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:textSize="@dimen/rv_profile_item_full_name_size"
+    tools:text="@tools:sample/full_names"/>
+
+  <TextView
+    android:id="@+id/rv_profile_item_title_tv"
+    android:layout_centerHorizontal="true"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/app_margin_small"
+    android:layout_below="@id/rv_profile_item_full_name_tv"
+    android:textColor="@color/midGrey"
+    android:textSize="@dimen/rv_profile_item_full_name_size"
+    tools:text="Writer"/>
+
+  <TextView
+    android:id="@+id/rv_profile_item_about_me_tv"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:textColor="@android:color/black"
+    android:layout_marginTop="@dimen/app_margin_extra_large"
+    android:layout_below="@id/rv_profile_item_title_tv"
+    android:text="@string/rv_profile_item_about_me"
+    android:textSize="@dimen/rv_profile_item_full_name_size"
+    android:textStyle="bold"/>
+
+  <TextView
+    android:id="@+id/rv_profile_item_introduction_tv"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/app_margin_small"
+    android:layout_below="@id/rv_profile_item_about_me_tv"
+    android:textColor="@color/midGrey"
+    android:textSize="@dimen/rv_profile_item_full_name_size"
+    android:textStyle="bold"
+    tools:text="Ut malesuada sollicitudin tincidunt. Maecenas volutpat suscipit efficitur. Curabitur ut tortor sit amet lacus pellentesque convallis in laoreet lectus. Curabitur lorem velit, bibendum et vulputate vulputate, commodo in tortor. Curabitur a dapibus mauris. Vestibulum hendrerit euismod felis at hendrerit. Pellentesque imperdiet volutpat molestie. Nam vehicula dui eu consequat finibus. Phasellus sed placerat lorem. Nulla pretium a magna sit amet iaculis. Aenean eget eleifend elit. Ut eleifend aliquet interdum. Cras pulvinar elit a dapibus iaculis. Nullam fermentum porttitor ultrices."/>
+</RelativeLayout>

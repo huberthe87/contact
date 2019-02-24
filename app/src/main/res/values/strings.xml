@@ -1,0 +1,5 @@
+<resources>
+  <string name="app_name">Contacts</string>
+  <string name="rv_avatar_item_default">Avatar</string>
+  <string name="rv_profile_item_about_me">About Me</string>
+</resources>
