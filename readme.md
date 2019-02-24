@@ -14,6 +14,6 @@ The UT cases are extremely limited, due the lack of time to consider all the det
 
 ## Demo
 
-**It might be slow, please wait a moment longer till the GIF fully loaded**
+**The animation might be a little slow, please wait a moment longer till the GIF fully loaded to get a better experience.**
 
 <img src="https://github.com/huberthe87/contact/blob/master/images/demo.gif" width="25%" height="25%" />
